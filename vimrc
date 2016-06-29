@@ -3,9 +3,9 @@ se nu
 
 " Status bar
 se laststatus=2
-se ruler
-se cmdheight=2
-" 
+"se ruler "we have status line so no ruler
+se cmdheight=1 "command line height
+" Status line is the magic here...
 se statusline=%4*%n%3*▌
 se statusline+=%2*%{(&modified?'✘':'')}
 se statusline+=%1*%{(&modified?'':'✓')}
@@ -13,13 +13,26 @@ se statusline+=\ %*
 se statusline+=%3*%{&ff},%{&fenc}%{(&bomb?',BOM':'')}%Y
 se statusline+=%4*▌%{expand(\"%:p:~:h\")}/%5*%f%4*%=%*%b=%Bh@%c:%l
 
+se cursorline nocursorcolumn "hilight current line but not column
+
 se hid
 se backspace=eol,start,indent
 se whichwrap+=<,>,h,l
-se ignorecase
-se hlsearch
-se incsearch
-se mouse=a
+se wildmenu "commands completition
+
+"Enable syntax hilight, sync from start to avoid errors
+syntax on
+syntax sync fromstart
+"Auto guess cfg for files
+filetype on
+filetype plugin on
+filetype indent on
+
+se ignorecase smartcase
+se hlsearch incsearch
+se nomagic "search require a backslash before specials
+
+se mouse=a "enable mouse
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 colo solarized
@@ -46,6 +59,11 @@ se ffs=unix
 se noswapfile
 se nobackup
 se nowb
+
+" Digraph's are the representations of special characters (such as ESC is presented as ^[ )
+se digraph
+
+se smartcase 
 
 " Possibly dangerous setting of executing "comments"
 se modeline
