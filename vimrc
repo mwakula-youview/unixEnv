@@ -11,7 +11,7 @@ se statusline+=%2*%{(&modified?'✘':'')}
 se statusline+=%1*%{(&modified?'':'✓')}
 se statusline+=\ %*
 se statusline+=%3*%{&ff},%{&fenc}%{(&bomb?',BOM':'')}%Y
-se statusline+=%4*▌%{expand(\"%:p:~:h\")}/%5*%f%4*%=%*%b=%Bh@%c:%l
+se statusline+=%4*▌%{expand(\"%:p:~:h\")}/%5*%{expand(\"%:t\")}%4*%=%*%b=%Bh@%c:%l
 
 se cursorline nocursorcolumn "hilight current line but not column
 

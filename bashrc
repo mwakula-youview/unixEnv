@@ -8,6 +8,13 @@ TERM=${TERM:=xterm-256color}
 [[ "${TERM}" == 'xterm' ]] && TERM='xterm-256color'
 export TERM
 
+alias l='ls --color=auto'
+alias la='ls --color=auto -A'
+alias ll='ls --color=auto -l'
+alias cd..='cd ..'
+alias cd...='cd ../..'
+export PS1='\#\[\e[48;2;100;100;100m\] \w \[\e[0m\] \$ '
+
 # in bash \[ and \] marks non-printable characters
 
 # \j jobs
